@@ -1,5 +1,4 @@
 
-
 rf = open('muct76-opencv.csv', "r")
 wf = open("training_with_face_landmarks.xml", "w")
 
@@ -21,7 +20,7 @@ for i in range(1, len(lines)):
         xmin = min(xmin, numx)
         ymax = max(ymax, numy)
         ymin = min(ymin, numy)
-    wf.write("    <box top='{top}' left='{left}' width='{width}' height='{height}'>\n".format(top=xmin,left=ymin,width=xmax-xmin+1,height=ymax-ymin+1))
+    wf.write("    <box top='{top}' left='{left}' width='{width}' height='{height}'>\n".format(top=ymin,left=xmin,width=xmax-xmin+1,height=ymax-ymin+1))
     for j in range(1, int(len(cols) / 2)):
         numx = int(round(float(cols[j * 2])))
         numy = int(round(float(cols[j * 2 + 1])))
